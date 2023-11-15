@@ -1,0 +1,24 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">EvaluareNr2</h1>
+</div>
+<div class="text-left">
+    <h4>
+        @Html.ActionLink("Librarie", "Index","Carti", null, new{@class = "btn btn-primary"})
+    </h4>
+    <p>
+        Sarcina practică:
+        Creați un proiect ASP.NET MVC cu numele soluției „EvaluareNr2” și numele proiectului<br />
+        „NumePrenume” (înlociți cu ale voastre personale).<br />
+        Proiectul se va referi la stocul unei librării online, ce este bazată pe clasa: ID, Denumire, Autor,<br />
+        Editura, Pret. Aplicația va conține formularul de introducere a cărților în stoc, editare a cărții<br />
+        selectate, ștergerea cărții selectate din stoc. Și lista de filtre pentru afișarea cărților din stoc:<br />
+        1. Stocul de cărți ce au prețul cuprins între 150 și 500 lei;<br />
+        2. Stocul de cărți cu numele autorului ce se începe cu o consoană;<br />
+        3. Stocul de cărți (sau cartea) ce are prețul maximal;<br />
+        4. Stocul de cărți (sau cartea) ce are prețul minimal;<br />
+    </p>
+</div>

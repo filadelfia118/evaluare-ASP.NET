@@ -1,0 +1,46 @@
+﻿@model AplicatieLibrarie.Models.CartiViewModels
+
+@{
+    ViewData["Title"] = "Lista cărților";
+}
+
+<h1>Lista cărților</h1>
+<div class="row">
+    <div class="col-md-6">
+        <p>
+            <a asp-action="Create" class="btn btn-primary">Adaugare carte nou</a>
+        </p>
+    </div>
+    <div class="col-md-6 text-right">
+        @using (Html.BeginForm("Index", "Carti", FormMethod.Get))
+        {
+            <div class="form-group">
+                @Html.Label("Selecteaza lista specifica:")
+                @Html.DropDownListFor(m=>m.ListaSpecificata,Model.ListOptions,"Toate cartile", new {@class ="form-control"} )
+                <input type="submit" value="Filtrare" class="btn btn-primary" />
+            </div>
+        }
+
+    </div>
+</div>
+<hr />
+<div class="row mt-5 m-5">
+    @foreach (var item in Model.ListaCartilor)
+    {
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <img src="@Url.Content(item.Imagine)" alt="" style="width:200px; height:200px" />
+                <hr>
+                <h5 class="card-title"> @Html.DisplayNameFor(model => model.ListaCartilor.FirstOrDefault().Nume): @Html.DisplayFor(modelItem => item.Nume) </h5>
+                <p class="card-text"> @Html.DisplayNameFor(model => model.ListaCartilor.FirstOrDefault().Autor): @Html.DisplayFor(modelItem => item.Autor)</p>
+                <p class="card-text">@Html.DisplayNameFor(model => model.ListaCartilor.FirstOrDefault().Price): @Html.DisplayFor(modelItem => item.Price)</p>
+                <div>
+                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </div>
+
+            </div>
+        </div>
+    }
+</div>
